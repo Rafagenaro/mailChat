@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style_senha.css') }}">
+</head>
+
+<body>
+    <div class="main-login">
+        <div class="left-login">
+            <h1>Mude a sua senha <br> E entre para o nosso time!</h1>
+        </div>
+        <div class="right-login">
+            <div class="card-login">
+                <h1>Esqueceu a senha</h1>
+
+                <!-- Email -->
+                <div class="textfield">
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" placeholder="E-mail">
+                </div>
+
+                <!-- Senha -->
+                <div class="textfield">
+                    <label for="senha">Senha</label>
+                    <input type="password" name="senha" placeholder="Senha">
+                </div>
+
+                <!-- Confirmacao de senha -->
+                <div class="textfield">
+                    <label for="confirm_senha">Confirme sua senha</label>
+                    <input type="password" name="confirm_senha" placeholder="Confirme sua senha">
+                </div>
+                <!-- Botão de Cadastro -->
+                <a href="{{ url_for('index') }}" style="text-decoration: none; width: 100%; margin-left: -50px;">
+                    <button class="button-senha">Mudar Senha</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style_cadastro.css') }}">
+</head>
+
+<body>
+  <div class="main-login">
+    <div class="left-login">
+      <h1>Crie sua conta <br> E entre para o nosso time!</h1>
+    </div>
+    <div class="right-login">
+      <div class="card-login">
+        <h1>Cadastro</h1>
+
+        <form method="post" action="{{ url_for('cadastro') }}">
+        <!-- Nome e Sobrenome lado a lado -->
+        <div class="textfield-group">
+          <div class="textfield half-width">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" placeholder="Nome">
+          </div>
+          <div class="textfield half-width">
+            <label for="sobrenome">Sobrenome</label>
+            <input type="text" name="sobrenome" placeholder="Sobrenome">
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="textfield">
+          <label for="email">E-mail</label>
+          <input type="email" name="email" placeholder="E-mail">
+        </div>
+
+        <!-- Senha -->
+        <div class="textfield">
+          <label for="senha">Senha</label>
+          <input type="password" name="senha" placeholder="Senha">
+        </div>
+
+        <!-- Data de Nascimento -->
+        <div class="textfield">
+          <label for="data_nascimento">Data de Nascimento</label>
+          <input type="date" name="data_nascimento">
+        </div>
+
+        <!-- Sexo -->
+        <div class="textfield">
+          <label>Sexo</label>
+          <div class="custom-select">
+            <select name="sexo">
+              <option value="masculino">Masculino</option>
+              <option value="feminino">Feminino</option>
+              <option value="prefiro_nao_dizer">Prefiro não dizer</option>
+            </select>
+            <div class="select-arrow"></div>
+          </div>
+        </div>
+
+        
+        <!-- Botão de Cadastro -->
+          <button type="submit" class="button-login">Cadastre-se</button>
+      </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

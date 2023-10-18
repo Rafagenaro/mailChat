@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Noto+Sans:wght@400;700&display=swap');
+
+body{
+  margin: 0; /*tirando a margem do site*/
+  font-family: 'Noto Sans', sans-serif;
+}
+
+/*serve para definir que todos as propriedades vão usar esse negocio*/
+body * { 
+  box-sizing: border-box;
+}
+
+.main-login{
+  width: 100vw;/*width=largura e 100vw=100% da tela*/
+  height: 100vh;/*height=altura*/
+  background: #201b2c;
+  display: flex; /*faz com que as coisas fiquem lado a lado*/
+  justify-content: center; /*centraliza  as coisas no eixo X*/
+  align-items: center; /*centraliza as coisas no eixo Y*/
+}
+
+.left-login{
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; 
+}
+
+.left-login > h1{
+  font-size: 3vw;
+  color: #77ffc0;
+}
+
+.animated{
+  width: 35vw; 
+}
+
+.right-login{
+  width: 50vw; /*50%*/
+  height: 100vh; /*100%*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-login{
+  width: 60%;/*60% da div*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px 35px;/*espaço entre a borda e o conteudo do site*/
+  background: #2f2841;
+  border-radius: 20px; /*para a borda*/
+  box-shadow: 0px 10px 40px #00000056; /*sombra do card*/
+}
+
+.card-login > h1 {
+  color: #00ff88;
+  font-weight: 800; /*peso da font*/
+  margin:0;
+}
+
+.textfield{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 10px 0px; /* primeiro valor esta ligado ao eixo Y, e o segundo ao eixo X*/
+}
+
+.textfield > input {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  background: #514869;
+  color: #f0ffffde;
+  font-size: 12pt; /*pt=unidade de medida para fontes*/
+  box-shadow: 0px 10px 40px #00000056;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.textfield > label{
+    color: #f0ffffde;
+    margin-bottom: 10px;/*margem para baixo*/
+  }
+  
+  .textfield > input::placeholder{
+    color: #f0ffff94;
+  }
+  
+  .button-senha{
+    width: 100%;
+    padding: 16px 0px;
+    margin: 25px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    text-transform: uppercase;/*deixar as letras em caixa alta*/
+    font-weight: 800;
+    letter-spacing: 3px; /*espaçamento*/
+    color: #2b134b;
+    background: #00ff88;
+    cursor: pointer;
+    box-shadow: 0px 10px 40px -12px #00ff1052;
+  }
+  
+  @media only screen and (max-width:950px){
+    .card-login{
+      width: 85%;
+    }
+  }
+  
+  @media only screen and (max-width:600px){
+    .main-login{
+      flex-direction: column; /*para deixar as divs em colunas*/
+    }
+    
+    .left-login > h1{
+      display: none; /*tirar o h1*/
+    }
+    
+    .left-login{
+      width: 100%;
+      height: auto;
+    }
+    
+    .right-login{
+      width: 100%;
+      height: auto;
+    }
+    
+    .animated{
+      width: 50vw;
+    }
+    
+    .card-login{
+      width: 90%;
+    }
+  }
+
+  .textfield-group {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+  
+.half-width {
+    flex: 1; /* Isso fará com que ambos os campos preencham igualmente o espaço disponível */
+    margin-right: 1%; /* Adiciona uma pequena margem à direita */
+    :last-child {
+        margin-right: 0; /* Remove a margem do último filho para evitar espaços extras */
+    }
+}
+
+
+  /* Estilos para o select customizado */
+.custom-select {
+  position: relative;
+  width: 100%;
+}
+
+.custom-select select {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  background: #514869;
+  color: #f0ffffde;
+  font-size: 12pt;
+  box-shadow: 0px 10px 40px #00000056;
+  appearance: none; /* Remove estilos padrão em alguns navegadores */
+  -webkit-appearance: none; /* Remove estilos padrão no Chrome e Safari */
+  -moz-appearance: none; /* Remove estilos padrão no Firefox */
+  outline: none;
+  box-sizing: border-box;
+}
+
+/* Estilo do ícone de seta para baixo */
+.select-arrow {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #f0ffffde;
+}
+
+/* ... seu CSS existente ... */
+
+/* Responsividade e otimizações adicionadas */
+
+@media only screen and (max-width: 1200px) {
+  .left-login > h1 {
+    font-size: 2.5vw;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .textfield-group {
+    flex-direction: column;
+  }
+  
+  .half-width {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .textfield > label {
+    font-size: 1rem;
+  }
+
+  .textfield > input, .custom-select select {
+    font-size: 1rem;
+  }
+
+  .button-login {
+    padding: 12px 0;
+    letter-spacing: 2px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .button-login {
+    margin: 15px 0;
+  }
+}
