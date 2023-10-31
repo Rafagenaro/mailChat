@@ -46,7 +46,6 @@ body * {
 
 .card-login {
   width: 60%;
-  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -95,7 +94,7 @@ body * {
 .button-login {
   width: 100%;
   padding: 16px 0px;
-  margin: 25px;
+  margin: 25px 0;
   border: none;
   border-radius: 8px;
   outline: none;
@@ -108,10 +107,15 @@ body * {
   box-shadow: 0px 10px 40px -12px #00ff1052;
 }
 
+.ancora_senha {
+  text-align: right;
+}
+
 .ancora_cadastro {
   color: #00ff88;
   margin-left: auto;
   text-decoration: none;
+  text-align: right;
 }
 
 .forgot-password-link {
