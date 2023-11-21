@@ -1,36 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <script src=""></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-  <script src=""></script>
-</head>
-
-<body>
-  <div class="main-login">
-    <div class="left-login">
-      <h1>Faça login <br> E entre para o nosso time!</h1>
-    </div>
-    <div class="right-login">
-      <div class="card-login">
-        <h1>LOGIN</h1>
+  <body>
+    <div class="main-login">
+      <div class="left-login">
+        <h1>
+          Faça login <br />
+          E entre para o nosso time!
+        </h1>
+      </div>
+      <div class="right-login">
+        <div class="card-login">
+          <h1>LOGIN</h1>
+          <form method="POST" action="/login">
             <div class="textfield">
-                <label for="usuario">E-mail</label>
-                <input type="text" name="usuario" placeholder="E-mail">
+              <label for="usuario">E-mail</label>
+              <input type="text" name="usuario" placeholder="E-mail" />
             </div>
             <div class="textfield">
-                <label for="senha">Senha</label>
-                <input type="password" name="senha" placeholder="Senha">
+              <label for="senha">Senha</label>
+              <input type="password" name="senha" placeholder="Senha" />
+              {% if error %}
+                <p style="color: red;">{{ error }}</p>
+              {% endif %}
             </div>
-            <button id="button-login" class="button-login" type="submit">Login</button>
-        <div class="ancora_senha"><a class="ancora_senha" href="{{ url_for('senha') }}">Esqueceu a senha?</a></div>
-        <div class="ancora_cadastro"><a class="ancora_cadastro" href="{{ url_for('cadastro') }}">Cadastre-se</a></div>
+            <button id="button-login" class="button-login" type="submit">
+              Login
+            </button>
+          </form>
+          <div class="ancora_senha">
+            <a class="ancora_senha" href="{{ url_for('senha') }}"
+              >Esqueceu a senha?</a
+            >
+          </div>
+          <div class="ancora_cadastro">
+            <a class="ancora_cadastro" href="{{ url_for('cadastro') }}"
+              >Cadastre-se</a
+            >
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>

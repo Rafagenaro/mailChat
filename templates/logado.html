@@ -1,11 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MailChat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style_logado.css') }}">
 </head>
+
 <body>
-    <h1>OLÁ</h1>
+    <div class="main-login">
+        <div class="logout-button-container">
+            <a href="{{ url_for('logout') }}" class="logout-button"><i class="fa fa-sign-out-alt"></i> Logout</a>
+        </div>
+        
+        
+        <div class="right-login">
+            <div class="card-contatos">
+                <!-- Perfil do usuário logado -->
+                <div class="user-profile">
+                    <div class="perfil-container">
+                        <img class="perfil-icon" src="https://cdn-icons-png.flaticon.com/512/5987/5987462.png" alt="">
+                        <div>
+                            <p class="perfil-data">{{ nome_logado }} {{ sobrenome_logado }}</p>
+                            <p class="perfil-data">{{ logged_in_user.email }}</p>
+                        </div>
+                    </div>
+
+                    <h2 style="color: white">CONTATOS</h2>
+                    <div class="lista-contatos">
+                        {% for user in other_users %}
+                            <div class="card-contato" onclick="fillData('{{ user.nome }}', '{{ user.sobrenome }}', '{{ user.email }}', '{{ user.sexo }}', this)">
+                                <div class="perfil-container">
+                                    <img class="perfil-icon" src="https://cdn-icons-png.flaticon.com/512/5987/5987462.png" alt="">
+                                    <div>
+                                        <p class="perfil-data">{{ user.nome }} {{ user.sobrenome }}</p>
+                                        <p class="perfil-data">{{ user.email }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                            
+                    </div>
+                </div>
+        
+                <!-- Seção de formulário já existente -->
+                <div class="form-section">
+                    <!-- Seu HTML existente para o formulário aqui -->
+                </div>
+            </div>
+            <div class="card-login">
+ 
+
+                <!-- Nome e Sobrenome lado a lado -->
+
+
+                <!-- Caixa de envio -->
+                <form action="https://api.staticforms.xyz/submit" method="POST">
+                    <input type="hidden" name="accessKey" value="7dfeafe2-e74a-45bb-b02e-c783b2b6ec61">
+                    <div class="textfield-group">
+                        <div class="textfield half-width">
+                            <label for="nome">Nome</label>
+                            <input id="nome_input" ype="text" name="nome" readonly>
+                        </div>
+                    </div>
+    
+                    <!-- Email -->
+                    <div class="textfield">
+                        <label for="email">E-mail</label>
+                        <input id="email_input" type="email" name="email" readonly>
+                    </div>
+    
+                    <!-- Sexo -->
+                    <div class="textfield">
+                        <label for="sexo">Sexo</label>
+                        <input id="sexo_input" type="text" name="sexo" readonly>
+                    </div>
+                    
+                    <div class="textfield">
+                        <textarea id='mensagem_textarea' name="message" class="textfield" placeholder="Type your Message Here...." tabindex="5" style="resize: none; height: 100px;" required></textarea>
+                    </div>
+                    <input type="hidden" name="redirectTo" value="http://127.0.0.1:5000/logado">
+                    <button id="sendEmailButton" type="submit" class="button-login">Enviar</button>
+                </form>
+
+
+                <!-- Botão de envio -->
+                
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        function fillData(nome, sobrenome, email, sexo, element) {
+            nomeCompleto = nome + ' ' + sobrenome
+            document.getElementById('nome_input').value = nomeCompleto;
+            document.getElementById('email_input').value = email;
+            document.getElementById('sexo_input').value = sexo;
+
+            var contatos = document.getElementsByClassName('card-contato');
+        
+            // Remover a classe 'contato-selecionado' de todos os contatos
+            for(var i = 0; i < contatos.length; i++) {
+                contatos[i].classList.remove('contato-selecionado');
+            }
+        
+            // Adicionar a classe 'contato-selecionado' ao elemento clicado
+            element.classList.add('contato-selecionado'); 
+        }
+
+    </script>
+    
+    <script type="text/javascript">
+        function applyRandomBackgrounds() {
+            var colors = ['#e6194B', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe', '#008080', '#e6beff', '#9A6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#808080', '#ffffff'];
+    
+            // Seleciona todos os ícones de perfil
+            var perfilIcons = document.querySelectorAll('.perfil-icon');
+    
+            perfilIcons.forEach(function(perfilIcon) {
+                var randomColor = colors[Math.floor(Math.random() * colors.length)];
+                perfilIcon.style.backgroundColor = randomColor;
+                perfilIcon.style.borderRadius = '50%'; // Isso vai tornar o fundo redondo
+            });
+        }
+    
+        // Quando o conteúdo DOM estiver carregado, chama a função applyRandomBackgrounds.
+        document.addEventListener("DOMContentLoaded", applyRandomBackgrounds);
+    </script>
+
 </body>
+
 </html>
